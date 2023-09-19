@@ -12,7 +12,10 @@
         android:theme="@style/Theme.UserShop"
         tools:targetApi="31">
         <activity
-            android:name=".ProductView"
+            android:name=".activity.Item_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ProductView"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"

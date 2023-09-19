@@ -3,9 +3,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.usershop.ProductView
+import com.example.usershop.activity.ProductView
 import com.example.usershop.databinding.CategoryItemBinding
 import com.example.usershop.utility.Category
+import com.example.usershop.utility.Extra_Category
 import com.squareup.picasso.Picasso
 
 class RvCategoryAdapter (private val contactList:java.util.ArrayList<Category>, var context1: Context): RecyclerView.Adapter<RvCategoryAdapter.ViewHolder>() {
@@ -30,7 +31,7 @@ class RvCategoryAdapter (private val contactList:java.util.ArrayList<Category>, 
 
             rvContainer.setOnClickListener {
                 val ProductIntent= Intent(context1, ProductView::class.java)
-              //  ProductIntent.putExtra(Extra_Category,currentItem)
+                ProductIntent.putExtra(Extra_Category,currentItem)
                 context1.startActivity(ProductIntent)
             }
         }
