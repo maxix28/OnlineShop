@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.usershop.activity.Item_activity
+import com.example.usershop.activity.item2_activity
 
 import com.example.usershop.databinding.ProductItemBinding
 import com.example.usershop.utility.Extra_Product
@@ -43,7 +44,7 @@ class ProductAdapter(private val productList:java.util.ArrayList<Product>, var c
             ProdNAme.text= currentItem.name.toString()
             ProdPrice.text= "$${currentItem.price}"
 rvContainer.setOnClickListener {
-    val itemIntent= Intent(context, Item_activity::class.java)
+    val itemIntent= Intent(context, item2_activity::class.java)
     itemIntent.putExtra(Extra_Product,currentItem)
     println("ITEM")
     context.startActivity(itemIntent)
