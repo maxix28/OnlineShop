@@ -1,5 +1,6 @@
 package com.example.usershop.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -22,6 +23,12 @@ product_= intent.getParcelableExtra(Extra_Product)!!
             prodName.text = product_.name
             price1.text= "$"+product_.price.toString()
             Decscriptoin.text= product_.description
+        }
+
+        binding.BUYbtn.setOnClickListener {
+            val BuyIntent= Intent(this,User_Buy::class.java)
+            BuyIntent.putExtra(Extra_Product,product_)
+            startActivity(BuyIntent)
         }
 
     }

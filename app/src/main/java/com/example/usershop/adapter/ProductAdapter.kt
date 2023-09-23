@@ -5,15 +5,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.usershop.activity.Item_activity
 import com.example.usershop.activity.item2_activity
 
 import com.example.usershop.databinding.ProductItemBinding
 import com.example.usershop.utility.Extra_Product
 import com.example.usershop.utility.Product
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 
 class ProductAdapter(private val productList:java.util.ArrayList<Product>, var context : Context):RecyclerView.Adapter<ProductAdapter.ViewHolder>(){
     class ViewHolder (val binding: ProductItemBinding):RecyclerView.ViewHolder(binding.root){
