@@ -18,6 +18,8 @@ class item2_activity : AppCompatActivity() {
         setContentView(binding.root)
         Toast.makeText(this,"Work",Toast.LENGTH_SHORT).show()
 product_= intent.getParcelableExtra(Extra_Product)!!
+        println(product_)
+
         binding.apply {
             Picasso.get().load(product_.image).into(imgProd)
             prodName.text = product_.name

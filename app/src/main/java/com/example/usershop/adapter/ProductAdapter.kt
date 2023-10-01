@@ -40,9 +40,11 @@ class ProductAdapter(private val productList:java.util.ArrayList<Product>, var c
 
             ProdNAme.text= currentItem.name.toString()
             ProdPrice.text= "$${currentItem.price}"
+            println(" ${currentItem.name  }  ${currentItem.ID}")
 rvContainer.setOnClickListener {
     val itemIntent= Intent(context, item2_activity::class.java)
     itemIntent.putExtra(Extra_Product,currentItem)
+    println(currentItem)
     println("ITEM")
     context.startActivity(itemIntent)
 }

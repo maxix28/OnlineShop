@@ -42,6 +42,8 @@ class ProductView : AppCompatActivity() {
                 if(snapshot.exists()){
                     for(contactSnap in snapshot.children){
                         val product= contactSnap.getValue(Product::class.java)
+                        var id: String
+                        println(product)
                         ProductList.add(product!!)
                     }
                 }
@@ -49,6 +51,7 @@ class ProductView : AppCompatActivity() {
 
                 val rvAdapter= ProductAdapter(ProductList,this@ProductView)
                 binding.rvPdoduct.adapter= rvAdapter
+                println(ProductList)
 
             }
 
