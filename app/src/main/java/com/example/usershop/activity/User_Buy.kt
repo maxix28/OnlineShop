@@ -3,6 +3,7 @@ package com.example.usershop.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.usershop.R
 import com.example.usershop.databinding.ActivityUserBuyBinding
 import com.example.usershop.utility.*
 import com.google.firebase.database.DatabaseReference
@@ -36,6 +37,19 @@ println(product)
         firebaceRef = FirebaseDatabase.getInstance().getReference("orders")
 
         binding.apply {
+
+
+            verificate.setOnClickListener {
+                Toast.makeText(this@User_Buy,"Open card fragment",Toast.LENGTH_SHORT).show()
+supportFragmentManager.beginTransaction().apply {
+    replace(R.id.CardFragment,CardFragment())
+    addToBackStack(null)
+
+    commit()
+}
+            }
+
+
             buyNowBTN.setOnClickListener {
                 val name = clientName.text.toString()
                 if (name.isEmpty()) {
@@ -45,7 +59,7 @@ println(product)
                 if (phone.isEmpty()) phoneNumber.error = "Input your phone number"
                 val contactID = firebaceRef.push().key!!
 
-                order = order(product.name.toString(),product.price!!.toInt(),name,phone,product.ID.toString())
+                order = order(product.name.toString(),product.price!!.toInt(),name,phone,product.ID.toString(),contactID)
 
                 firebaceRef.child(contactID).setValue(order)
                     .addOnCompleteListener {

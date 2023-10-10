@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.example.usershop'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.usershop"
         minSdk 26
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -48,5 +48,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+    implementation("com.stripe:stripe-android:20.32.0")
 
 }
