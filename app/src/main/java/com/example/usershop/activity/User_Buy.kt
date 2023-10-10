@@ -6,6 +6,7 @@ import android.widget.Toast
 import com.example.usershop.R
 import com.example.usershop.databinding.ActivityUserBuyBinding
 import com.example.usershop.utility.*
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
@@ -13,13 +14,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class User_Buy : AppCompatActivity() {
+class User_Buy : AppCompatActivity(),Card {
     lateinit var binding: ActivityUserBuyBinding
     lateinit var  product : Product
     lateinit var firebaceRef: DatabaseReference
     lateinit var client: Client
     lateinit var  order: order
-
+     private var card: Boolean?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserBuyBinding.inflate(layoutInflater)
@@ -51,15 +52,23 @@ supportFragmentManager.beginTransaction().apply {
 
 
             buyNowBTN.setOnClickListener {
+           //     if(CarValidation(real))
+
                 val name = clientName.text.toString()
                 if (name.isEmpty()) {
                     clientName.error = "Input your name"
                 }
                 val phone = phoneNumber.text.toString()
                 if (phone.isEmpty()) phoneNumber.error = "Input your phone number"
+
+                val email= emailOrder.text.toString()
+                if(email.isEmpty())emailOrder.error = " Input your email"
+                if ( card==false){
+                    Toast.makeText(this@User_Buy,"Verify yourself",Toast.LENGTH_SHORT).show()
+                }
                 val contactID = firebaceRef.push().key!!
 
-                order = order(product.name.toString(),product.price!!.toInt(),name,phone,product.ID.toString(),contactID)
+                order = order(product.name.toString(),product.price!!.toInt(),name,phone,product.ID.toString(),contactID,email)
 
                 firebaceRef.child(contactID).setValue(order)
                     .addOnCompleteListener {
@@ -121,5 +130,10 @@ supportFragmentManager.beginTransaction().apply {
         }
 
 
+    }
+
+    override fun CarValidation(real: Boolean) {
+        card = real
+       Toast.makeText(this,"Real card is ${card} ", Toast.LENGTH_SHORT).show()
     }
 }

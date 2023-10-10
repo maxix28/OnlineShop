@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.usershop.R
 import com.example.usershop.databinding.ActivityMainBinding
+import com.example.usershop.utility.Card
 import com.example.usershop.utility.Category
 import com.google.firebase.database.*
 
