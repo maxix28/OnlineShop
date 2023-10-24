@@ -81,8 +81,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="example@gmail.com"
         android:inputType="textPersonName"
-        android:text="maxyxpavliv@gmail.com"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone_number" />
 
